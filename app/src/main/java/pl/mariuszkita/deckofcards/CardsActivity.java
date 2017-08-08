@@ -48,7 +48,7 @@ public class CardsActivity extends AppCompatActivity {
     private Dialog dialog;
     private Dialog shuffledDialog;
     private int figury = 0;
-    private int schodki = 1;
+    private int schodki = 0;
     private int lastCard = 0;
 
     private int takeCard = 0;
@@ -137,6 +137,7 @@ public class CardsActivity extends AppCompatActivity {
                         break;
                     case 0:
                         id_images = R.id.fifth_card;
+                       // whichCard=0;
                         ((TextView) findViewById(R.id.text_in_card)).setText("Nowe\nrozdanie");
                         break;
                 }
@@ -216,6 +217,8 @@ public class CardsActivity extends AppCompatActivity {
             }
 
             if(lastCard == 0){
+                schodkiArrayList.add(id_imagesSchodki);
+                schodki++;
             }else if(lastCard == takeCard - 1 && (upDown == 0 || upDown == -1)){
                 upDown = -1;
                 schodkiArrayList.add(id_imagesSchodki);
@@ -227,7 +230,7 @@ public class CardsActivity extends AppCompatActivity {
             }else {
                 upDown = 0;
                 schodkiArrayList.clear();
-                schodki = 1;
+                schodki = 0;
             }
 
             if(schodki == 3){
